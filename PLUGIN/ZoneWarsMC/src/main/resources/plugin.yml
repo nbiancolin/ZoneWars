@@ -1,0 +1,7 @@
+name: ZoneWarsMc
+version: '${project.version}'
+main: io.github.nbiancolin.zonewarsmc.ZoneWarsMc
+api-version: 1.19
+authors: [ NicholasBiancolin ]
+description: Zone Wars, the epic Fortnite close combat game mode, recreated in Minecraft
+website: nbiancolin.github.io/ZoneWars.html
