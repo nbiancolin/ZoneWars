@@ -6,7 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class giveMaterials extends JavaPlugin {
 
     public void giveAllMats(){
-        for(Player p : )
+        //for(Player p : )
     }
 
 }
