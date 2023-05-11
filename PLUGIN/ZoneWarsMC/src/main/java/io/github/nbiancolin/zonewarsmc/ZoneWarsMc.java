@@ -18,10 +18,14 @@ public final class ZoneWarsMc extends JavaPlugin implements Listener {
 
         getServer().getPluginManager().registerEvents(this,this);
         getServer().getPluginManager().registerEvents(new bridgeStick(), this); //leaving this to know how to add stuff
-        getServer().getPluginManager().registerEvents(new runCommand(), this); //how the fuck to register a command thingy
+        //getServer().getPluginManager().registerEvents(new runCommand(), this); //how the fuck to register a command thingy
         //getServer().getPluginManager().registerEvents(new createTeams(), this); //wait how does this work //does it have to be an event handeler or can I just call it?
-        new teamSetup(); //figure out how to call this from main function (ish)
-        new teamSetup().createTeams();
+        getCommand("zonewars").setExecutor(new RunCommand());
+        getCommand("zwteams").setExecutor(new AssignTeams());
+        TeamSetup ts = new TeamSetup();
+        ts.createTeams();
+
+
         System.out.println("Zone Wars Plugin Successfully Started");
     }
 
@@ -37,7 +41,6 @@ public final class ZoneWarsMc extends JavaPlugin implements Listener {
         //don't forget to register events that are created!
         String name = player.getName();
         event.setJoinMessage("Welcome, " + name + ", to Zone Wars!");
-        teamSetup()
         //hashMap.set(event.getPlayer(), '0'); //Using 0 as the null character, and Z for the "used" character
 
     }

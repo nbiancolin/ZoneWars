@@ -5,3 +5,8 @@ api-version: 1.19
 authors: [ NicholasBiancolin ]
 description: Zone Wars, the epic Fortnite close combat game mode, recreated in Minecraft
 website: nbiancolin.github.io/ZoneWars.html
+commands:
+  zonewars:
+    description: Start the zone wars game (currently in development)
+  zwteams:
+    description: Arguments - 'randomize' 'resetkills' 'createteams' (only to use in worst case)

@@ -14,7 +14,7 @@ import static org.bukkit.scoreboard.Criteria.*;
 
 
 
-public class teamSetup {
+public class TeamSetup {
 
     static Team[] teams;
 

@@ -6,7 +6,9 @@ import org.bukkit.command.CommandSender;
 
 import static org.bukkit.Bukkit.getOnlinePlayers;
 
-public class runCommand implements CommandExecutor {
+public class RunCommand implements CommandExecutor {
+
+    TeamSetup ts = new TeamSetup();
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
@@ -15,6 +17,10 @@ public class runCommand implements CommandExecutor {
             System.out.println("[MCZW] ERROR - Cannot start game, too many players online");
             return false;
         }
+
+        ts.randomizeAllOnline(); //create teams
+        ts.resetKills();
+
 
 
 
