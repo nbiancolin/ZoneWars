@@ -24,6 +24,9 @@ public class AssignTeams implements CommandExecutor {
                 ts.createTeams();
                 System.out.println("[MCZW] (zwteams) Teams created");
                 break;
+            case "printhashmap":
+                ts.printhashmap();
+                break;
             default:
                 sender.sendMessage("[MCZW] Error: Invalid argument passed");
         }

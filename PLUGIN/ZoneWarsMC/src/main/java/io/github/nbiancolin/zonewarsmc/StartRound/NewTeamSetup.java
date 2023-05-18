@@ -71,6 +71,14 @@ public class NewTeamSetup {
 
     public void randomizeTeams(){
         teams.clear();
+        //Find a way to clear bukkit scoreboard
+        ScoreboardManager manager = getScoreboardManager();
+        Scoreboard board = manager.getMainScoreboard();
+
+        for(int i = 0; i < 6; i++){
+            oldTeams[i].unregister(); //does this work? time to find out
+        }
+
         Player[] p = generatePlayerList();
         shuffleArray(p);
         for(int i = 0; i < 6; i++){
@@ -89,6 +97,13 @@ public class NewTeamSetup {
             i++;
         }
         return players;
+    }
+
+    public void printhashmap(){
+        System.out.println("[MCZW] (printhashmap) Printing hashmap");
+        for(Player p : teams.keySet()){
+            System.out.println("[MCZW] (printhashmap) " + p.getName() + " is on team " + teams.get(p));
+        }
     }
 
     private static void shuffleArray(Player[] array) {
