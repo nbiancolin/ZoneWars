@@ -3,6 +3,8 @@ package io.github.nbiancolin.zonewarsmc;
 import io.github.nbiancolin.zonewarsmc.InitialStartupThings.scoreHelper;
 import io.github.nbiancolin.zonewarsmc.StartRound.*;
 import io.github.nbiancolin.zonewarsmc.Z_OLDGameMechanics.bridgeStick; //you have to import the package as well
+import io.github.nbiancolin.zonewarsmc.StartRound.NewTeamSetup;
+import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,6 +13,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class ZoneWarsMc extends JavaPlugin implements Listener {
+
 
     @Override
     public void onEnable() {
@@ -22,8 +25,10 @@ public final class ZoneWarsMc extends JavaPlugin implements Listener {
         //getServer().getPluginManager().registerEvents(new createTeams(), this); //wait how does this work //does it have to be an event handeler or can I just call it?
         getCommand("zonewars").setExecutor(new RunCommand());
         getCommand("zwteams").setExecutor(new AssignTeams());
-        TeamSetup ts = new TeamSetup();
+        NewTeamSetup ts = new NewTeamSetup();
         ts.createTeams();
+
+        World zwWorld = getServer().getWorld("world"); //change world name here otherwise plugin no workey
 
 
         System.out.println("Zone Wars Plugin Successfully Started");

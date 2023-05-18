@@ -7,18 +7,30 @@ import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 import org.bukkit.scoreboard.Team;
 
+import java.util.HashMap;
 import java.util.Random;
 
 import static org.bukkit.Bukkit.*;
-import static org.bukkit.scoreboard.Criteria.*;
+import static org.bukkit.scoreboard.Criteria.PLAYER_KILL_COUNT;
 
+public class NewTeamSetup {
 
+    public HashMap<Player, String> teams = new HashMap<Player, String>();
+    String[] teamNames = new String[]{"green", "red", "blue", "orange", "yellow", "magenta"};
 
-public class TeamSetup {
-
-    static Team[] teams;
+    public Team[] oldTeams = new Team[6];
 
     public void createTeams() {
+        teams.put(null, "test");
+        teams.put(null, "green");
+        teams.put(null, "red");
+        teams.put(null, "blue");
+        teams.put(null, "orange");
+        teams.put(null, "yellow");
+        teams.put(null, "magenta");
+        System.out.println("[MCZW] (createteams) teams hashmap created");
+
+        //do it with bukkit to bc why the fuck not but use hashmap primarily
         ScoreboardManager manager = getScoreboardManager();
         Scoreboard board = manager.getNewScoreboard();
 
@@ -31,7 +43,8 @@ public class TeamSetup {
         Team yellowT = board.registerNewTeam("yellow");
         Team magentaT = board.registerNewTeam("magentaT");
 
-        Team[] teams = {greenT, redT, blueT, orangeT, yellowT, magentaT}; //public?
+        Team[] oldTeams = {greenT, redT, blueT, orangeT, yellowT, magentaT}; //public?
+
 
         greenT.setPrefix(ChatColor.GREEN + "Green"); //could make into loop but who gives a shit at this point
         redT.setPrefix(ChatColor.RED + "Red");
@@ -40,10 +53,10 @@ public class TeamSetup {
         //orangeT.setPrefix(ChatColor.MAGIC + "Green");
         yellowT.setPrefix(ChatColor.YELLOW + "Yellow");
         magentaT.setPrefix(ChatColor.LIGHT_PURPLE + "Magenta");
-
+        System.out.println("[MCZW] (createteams) legacy created");
     }
 
-    public void resetKills() {
+    public void resetKills(){
         ScoreboardManager manager = getScoreboardManager();
         Scoreboard board = manager.getMainScoreboard();
 
@@ -56,16 +69,18 @@ public class TeamSetup {
         //Objective greenK =  board.registerNewObjective("greenK", TEAM_KILL_GREEN, "Green Kills"); //For statistics after the round (implement later?)
     }
 
-    public void randomizeSpecificTeams(Player[] players){
-        shuffleArray(players);
-        for(int i = 0; i < players.length; i++){
-            teams[i].addEntry(players[i].getName());
-            System.out.println("[MCZW] " + players[i].getName() + " has been added to" + teams[i].getDisplayName());
+    public void randomizeTeams(){
+        teams.clear();
+        Player[] p = generatePlayerList();
+        shuffleArray(p);
+        for(int i = 0; i < 6; i++){
+            teams.put(p[i], teamNames[i]);
+            oldTeams[i].addEntry(p[i].getName());
+            System.out.println("[MCZW] (randomize teams)" + p[i].getName() + " has been added to" + oldTeams[i].getDisplayName());
         }
-
     }
 
-    public void randomizeAllOnline(){
+    public Player[] generatePlayerList(){
         int num = getOnlinePlayers().size();
         Player[] players = new Player[num];
         int i = 0;
@@ -73,6 +88,7 @@ public class TeamSetup {
             players[i] = p;
             i++;
         }
+        return players;
     }
 
     private static void shuffleArray(Player[] array) {
@@ -87,5 +103,4 @@ public class TeamSetup {
             array[i] = temp;
         }
     }
-
 }

@@ -1,18 +1,19 @@
 package io.github.nbiancolin.zonewarsmc.StartRound;
 
+import io.github.nbiancolin.zonewarsmc.StartRound.NewTeamSetup;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 public class AssignTeams implements CommandExecutor {
-    TeamSetup ts = new TeamSetup();
+    NewTeamSetup ts = new NewTeamSetup();
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
         System.out.println("[MCZW] - zwteams command executed");
         switch(args[0]){
             case "randomize":
-                ts.randomizeAllOnline();
+                ts.randomizeTeams();
                 System.out.println("[MCZW] (zwteams) Teams Randomized");
                 break;
             case "resetkills":

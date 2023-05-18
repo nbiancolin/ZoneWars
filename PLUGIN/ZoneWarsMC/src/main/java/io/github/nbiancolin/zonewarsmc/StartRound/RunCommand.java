@@ -8,7 +8,7 @@ import static org.bukkit.Bukkit.getOnlinePlayers;
 
 public class RunCommand implements CommandExecutor {
 
-    TeamSetup ts = new TeamSetup();
+    NewTeamSetup ts = new NewTeamSetup();
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
@@ -19,7 +19,7 @@ public class RunCommand implements CommandExecutor {
             return false;
         }
 
-        ts.randomizeAllOnline(); //create teams
+        //ts.randomizeAllOnline(); //create teams
         ts.resetKills();
 
 
