@@ -5,6 +5,7 @@ import io.github.nbiancolin.zonewarsmc.StartRound.*;
 import io.github.nbiancolin.zonewarsmc.Z_OLDGameMechanics.bridgeStick; //you have to import the package as well
 import io.github.nbiancolin.zonewarsmc.StartRound.NewTeamSetup;
 import org.bukkit.World;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -14,7 +15,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class ZoneWarsMc extends JavaPlugin implements Listener {
 
-
+    public FileConfiguration config = this.getConfig();
     @Override
     public void onEnable() {
         // Plugin startup logic
@@ -25,6 +26,13 @@ public final class ZoneWarsMc extends JavaPlugin implements Listener {
         //getServer().getPluginManager().registerEvents(new createTeams(), this); //wait how does this work //does it have to be an event handeler or can I just call it?
         getCommand("zonewars").setExecutor(new RunCommand());
         getCommand("zwteams").setExecutor(new AssignTeams());
+
+        config.addDefault("youAreAwesome", true); //temp stuff for config (maybe?)
+        config.options().copyDefaults(true);
+        saveConfig();
+
+
+
         NewTeamSetup ts = new NewTeamSetup();
         ts.createTeams();
 
@@ -47,6 +55,13 @@ public final class ZoneWarsMc extends JavaPlugin implements Listener {
         String name = player.getName();
         event.setJoinMessage("Welcome, " + name + ", to Zone Wars!");
         //hashMap.set(event.getPlayer(), '0'); //Using 0 as the null character, and Z for the "used" character
+
+        if (config.getBoolean("youAreAwesome")) {
+            player.sendMessage("You are awesome!");
+        } else {
+            player.sendMessage("You are not awesome...");
+        }
+
 
     }
 

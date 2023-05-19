@@ -8,9 +8,7 @@ public class TeamManagement {
     NewTeamSetup ts = new NewTeamSetup();
 
     public void tpPlayers(){
-        for(Player p : OLD_TeamSetup.teams){
-            switch p.getTeam()//idfk I;ll figure itout
-        }
+        System.out.println("[MCZW] tpPlayers() called");
 
     }
 }
