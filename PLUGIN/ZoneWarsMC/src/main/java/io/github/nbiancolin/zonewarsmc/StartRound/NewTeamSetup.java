@@ -1,6 +1,7 @@
 package io.github.nbiancolin.zonewarsmc.StartRound;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
@@ -17,6 +18,16 @@ public class NewTeamSetup {
 
     public HashMap<Player, String> teams = new HashMap<Player, String>();
     String[] teamNames = new String[]{"green", "red", "blue", "orange", "yellow", "magenta"};
+
+
+    //locations (eventually port to a YAML file)
+    Location greenSpawn = new Location(null, 0, 0, 0);
+    Location redSpawn = new Location(null, 0, 0, 0);
+    Location blueSpawn = new Location(null, 0, 0, 0);
+    Location orangeSpawn = new Location(null, 0, 0, 0);
+    Location yellowSpawn = new Location(null, 0, 0, 0);
+    Location magentaSpawn = new Location(null, 0, 0, 0);
+
 
     public Team[] oldTeams = new Team[6];
 
@@ -75,9 +86,9 @@ public class NewTeamSetup {
         ScoreboardManager manager = getScoreboardManager();
         Scoreboard board = manager.getMainScoreboard();
 
-        for(int i = 0; i < 6; i++){
-            oldTeams[i].unregister(); //does this work? time to find out
-        }
+        //for(int i = 0; i < 6; i++){
+        //    oldTeams[i].unregister(); //does this work? time to find out
+        //}
 
         Player[] p = generatePlayerList();
         shuffleArray(p);

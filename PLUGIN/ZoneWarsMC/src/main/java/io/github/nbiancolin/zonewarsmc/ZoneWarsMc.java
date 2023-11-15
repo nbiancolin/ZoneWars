@@ -56,7 +56,7 @@ public final class ZoneWarsMc extends JavaPlugin implements Listener {
         event.setJoinMessage("Welcome, " + name + ", to Zone Wars!");
         //hashMap.set(event.getPlayer(), '0'); //Using 0 as the null character, and Z for the "used" character
 
-        if (config.getBoolean("youAreAwesome")) {
+        if (config.getBoolean("youAreAwesome")) { //(how do config files work and is this even worth it
             player.sendMessage("You are awesome!");
         } else {
             player.sendMessage("You are not awesome...");
