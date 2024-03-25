@@ -39,7 +39,7 @@ public final class ZoneWarsMc extends JavaPlugin implements Listener {
         World zwWorld = getServer().getWorld("world"); //change world name here otherwise plugin no workey
 
 
-        System.out.println("Zone Wars Plugin Successfully Started");
+        System.out.println("[MCZW] - Zone Wars Plugin Successfully Started");
     }
 
     @EventHandler

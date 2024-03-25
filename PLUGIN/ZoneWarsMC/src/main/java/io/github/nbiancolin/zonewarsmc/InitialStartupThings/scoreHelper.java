@@ -19,7 +19,7 @@ import org.bukkit.scoreboard.Team;
  */
 public class scoreHelper {
 
-    private static HashMap<UUID, scoreHelper> players = new HashMap<>();
+    private static HashMap<UUID, scoreHelper> players = new HashMap<UUID, scoreHelper>();
 
     public static boolean hasScore(Player player) {
         return players.containsKey(player.getUniqueId());
