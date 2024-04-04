@@ -22,7 +22,6 @@ public final class ZoneWarsMc extends JavaPlugin implements Listener {
 
         getServer().getPluginManager().registerEvents(this,this);
         getServer().getPluginManager().registerEvents(new bridgeStick(), this); //leaving this to know how to add stuff
-        //getServer().getPluginManager().registerEvents(new runCommand(), this); //how the fuck to register a command thingy
         //getServer().getPluginManager().registerEvents(new createTeams(), this); //wait how does this work //does it have to be an event handeler or can I just call it?
         getCommand("zonewars").setExecutor(new RunCommand());
         getCommand("zwteams").setExecutor(new AssignTeams());

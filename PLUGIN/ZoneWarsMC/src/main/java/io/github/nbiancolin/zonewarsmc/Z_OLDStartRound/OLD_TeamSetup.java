@@ -37,7 +37,7 @@ public class OLD_TeamSetup {
 
         teams = new Team[]{greenT, redT, blueT, orangeT, yellowT, magentaT}; //public?
 
-        greenT.setPrefix(ChatColor.GREEN + "Green"); //could make into loop but who gives a shit at this point
+        greenT.setPrefix(ChatColor.GREEN + "Green"); //could make into loop but for 6 it doesnt matter
         redT.setPrefix(ChatColor.RED + "Red");
         blueT.setPrefix(ChatColor.BLUE + "Blue");
         orangeT.setPrefix(ChatColor.getByChar("ff9102")+ "Orange");

@@ -41,7 +41,7 @@ public class NewTeamSetup {
         teams.put(null, "magenta");
         System.out.println("[MCZW] (createteams) teams hashmap created");
 
-        //do it with bukkit to bc why the fuck not but use hashmap primarily
+        ///hashmaps were no luck so try doing it with builtin code
         ScoreboardManager manager = getScoreboardManager();
         Scoreboard board = manager.getNewScoreboard();
 

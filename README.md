@@ -1,7 +1,8 @@
 # ZoneWars
  
-implement onw teams?
+Minecraft plugin to play the popular minigame "ZoneWars"
 
+Plugin runs with Minecraft 1.16.4 (has not been tested in any other version)
 
-- start with setting team spawn commands
-- team joining via commands
+I compiled it using the IntelliJ plugin [Minecraft Development](https://plugins.jetbrains.com/plugin/8327-minecraft-development) 
+

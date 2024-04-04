@@ -19,7 +19,7 @@ public class hashMap extends JavaPlugin implements Listener {
         map.put(p,c);
     }
 
-    public void randomizeTeams(){ //This function might be O(n!) but I don't give a fuck
+    public void randomizeTeams(){ //This function might be O(n!) but oh well
         System.out.println("[ZONE WARS] Randomizing Teams");
         map.clear(); //clears map.
         int numPlayers = getServer().getOnlinePlayers().size();
